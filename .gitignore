@@ -1,9 +1,39 @@
+# Dependencies and caches
 node_modules/
+.cache/
+.npm/
+.pnpm-store/
+
+# Generated builds and TypeScript files
 .next/
 dist/
 out/
-.cache/
+build/
 *.tsbuildinfo
 next-env.d.ts
+
+# Test output
 test-results/
 playwright-report/
+blob-report/
+coverage/
+
+# Local environment files (keep shareable examples)
+.env*
+!.env.example
+!.env.*.example
+
+# Logs
+*.log
+
+# Local deployment state
+.vercel/
+
+# OS and editor temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+*.swp
+*.swo
+*~
