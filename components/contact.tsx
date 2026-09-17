@@ -1,4 +1,24 @@
+"use client";
+
+import { useState } from "react";
+
+function getTomorrowMorning() {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(9, 30, 0, 0);
+
+  const localDateParts = [
+    tomorrow.getFullYear(),
+    String(tomorrow.getMonth() + 1).padStart(2, "0"),
+    String(tomorrow.getDate()).padStart(2, "0"),
+  ];
+
+  return `${localDateParts.join("-")}T09:30`;
+}
+
 export function Contact() {
+  const [expectedVisit, setExpectedVisit] = useState(getTomorrowMorning);
+
   return (
     <section className="contact" id="contact" aria-labelledby="contact-title">
       <div className="container">
@@ -11,6 +31,15 @@ export function Contact() {
             <p>
               提前预约可以减少等待。来电告诉我们宠物品种、体重与想做的项目，我们会为你预留合适时段。
             </p>
+            <label className="visit-field">
+              <span>期望到店日期</span>
+              <input
+                type="datetime-local"
+                value={expectedVisit}
+                onChange={(event) => setExpectedVisit(event.target.value)}
+                suppressHydrationWarning
+              />
+            </label>
             <div className="contact-actions">
               <a className="button" href="tel:4008880618">
                 致电 400-888-0618

@@ -790,6 +790,31 @@ section {
   max-width: 34em;
   color: rgba(255, 255, 255, 0.84);
 }
+.visit-field {
+  display: grid;
+  max-width: 360px;
+  gap: 8px;
+  margin-top: 26px;
+  font-weight: 800;
+}
+.visit-field span {
+  font-size: 0.9rem;
+}
+.visit-field input {
+  width: 100%;
+  min-height: 50px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 14px;
+  color: var(--ink);
+  background: white;
+  font: inherit;
+  color-scheme: light;
+}
+.visit-field input:focus-visible {
+  outline: 3px solid var(--mint);
+  outline-offset: 3px;
+}
 .contact-actions {
   display: flex;
   flex-wrap: wrap;
