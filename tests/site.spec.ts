@@ -75,6 +75,14 @@ test("mobile navigation closes after following an anchor", async ({ page }) => {
   await expect(page.locator("#site-menu")).toBeHidden();
 });
 
+test("expected visit defaults to tomorrow at 09:30", async ({ page }) => {
+  await page.clock.install({ time: new Date("2026-09-17T14:00:00") });
+  await page.goto("/");
+  await expect(page.getByLabel("期望到店日期")).toHaveValue(
+    "2026-09-18T09:30",
+  );
+});
+
 test("carousel controls wrap and expose the active slide", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
